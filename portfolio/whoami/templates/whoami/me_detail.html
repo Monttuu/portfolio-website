@@ -1,0 +1,125 @@
+{% extends 'base.html' %}
+
+{% block content_main %}
+	<!-- CONTENT HERE -->
+	<!-- First Row -->
+	<section id="two">
+		<div class="inner">
+			<article>
+				<div class="content">
+					<h4>{{ me.title_shortInfo }}</h4>
+					<p>{{ me.text_shortInfo }}</p>
+				</div>
+			</article>
+			<article>
+				<div class="content">
+					<div>
+						<img class='scaled_image' id='rounded' src="{{ me.image.url }}" />
+					</div>
+				</div>
+			</article>
+		</div>
+	</section>
+	<!-- Second Row -->
+	<section id="two">
+		<div class="inner">
+			<article>
+				<div class="content">
+					{{ me.title_education | safe }}
+					{{ me.text_education | safe }}
+				</div>
+			</article>
+			<article>
+				<div class="content">
+					{{ me.title_workExperience | safe }}
+					{{ me.text_workExperience | safe }}
+				</div>
+			</article>
+		</div>
+	</section>
+	<!-- Third Row -->
+	<section id="three">
+		<div class="inner">
+			<article>
+				<div class="content">
+					{{ me.text_skills | safe }}
+				</div>
+			</article>
+			<article>
+				<div class="content">
+					{{ me.text_codingTechnologies | safe }}
+				</div>
+			</article>
+			<article>
+				<div class="content">
+					{{ me.text_currentPosition | safe }}
+				</div>
+			</article>
+		</div>
+	</section>
+
+	<!-- Fourth Row -->
+	<section class="nopad" id="one">
+		<div class="inner">
+			<article>
+				<div class="row">
+					<div class="content">
+						<h6>I know the basics</h6>
+						<p>
+							<i class="icon fa-circle"></i>
+							<i class="icon fa-circle-o"></i>
+							<i class="icon fa-circle-o"></i>
+							<i class="icon fa-circle-o"></i>
+							<i class="icon fa-circle-o"></i>
+						</p>
+					</div>
+					<div class="content">
+						<h6>I know a bit more</h6>
+						<p>
+							<i class="icon fa-circle"></i>
+							<i class="icon fa-circle"></i>
+							<i class="icon fa-circle"></i>
+							<i class="icon fa-circle-o"></i>
+							<i class="icon fa-circle-o"></i>
+						</p>
+					</div>
+					<div class="content">
+						<h6>I feel comfortable with</h6>
+						<p>
+							<i class="icon fa-circle"></i>
+							<i class="icon fa-circle"></i>
+							<i class="icon fa-circle"></i>
+							<i class="icon fa-circle"></i>
+							<i class="icon fa-circle"></i>
+						</p>
+					</div>
+				</div>
+			</article>
+		</div>
+	</section>
+	<!-- Fifth Row -->
+	<section id="one">
+		<div class="inner">
+			<article>
+				<div class="content">
+					{{ me.title_thesis | safe }}
+					{{ me.text_thesis | safe }}
+				</div>
+			</article>
+		</div>
+	</section>
+
+	<!-- END OF CONTENT -->
+	<section id="one">
+		<div class="inner">
+			<a href="{% url 'home' %}">Go Back</a>
+			  {% if user.is_authenticated %}
+				<h1 class='posttitle loader'>{{ me.title }}</h1>
+				<a class="btn btn-primary" href="{% url 'whoami:me_publish' pk=me.pk %}">Publish</a>
+				  <a class="btn btn-primary" href="{% url 'whoami:me_edit' pk=me.pk %}">Edit<span class="glyphicon glyphicon-pencil"></span></a>
+	<!--              <a class="btn btn-primary" href="{% url 'whoami:me_remove' pk=me.pk %}">Remove<span class="glyphicon glyphicon-remove"></span></a>-->
+			  {% endif %}
+		</div>
+	</section>
+{% endblock %}
+

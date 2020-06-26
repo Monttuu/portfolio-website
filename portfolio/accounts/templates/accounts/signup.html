@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+
+{% block content %}
+<!--NEW CONTENT-->
+<!--FORM BY-->
+<!--https://bootsnipp.com/snippets/dldxB-->
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+
+    <!-- Icon -->
+    <div class="fadeIn first">
+      <img src="https://www.somehow.fi/somehow/wp-content/uploads/2014/10/LinkedIn-Logo-02-pieni1-300x300.png" id="icon" alt="User Icon" />
+    </div>
+
+    <!-- Login Form -->
+        <form method="POST">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            <input type="submit" value="Sign Up" class="btn btn-default">
+        </form>
+
+
+  </div>
+</div>
+
+
+<!--OLD CONTENT-->
+<!--<div class="container">-->
+<!--    <h1>Sign Up</h1>-->
+<!--    <form method="POST">-->
+<!--        {% csrf_token %}-->
+<!--        {% bootstrap_form form %}-->
+<!--        <input type="submit" value="Sign Up" class="btn btn-default">-->
+<!--    </form>-->
+<!--</div>-->
+{% endblock %}

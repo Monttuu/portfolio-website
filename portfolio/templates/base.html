@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+	<head>
+		<title>Santeri Levanto</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{% static 'portfolio/css/main.css'%}" />
+	</head>
+
+
+
+	<body>
+		<!-- Header -->
+		<header id="header" class="container">
+				<div class="inner">
+					<a href="{% url 'home' %}" class="logo">This is Me</a>
+					<nav id="nav">
+							<a href="{% url 'whoami:me_detail' pk=1 %}">Who Am I</a>
+							<a href="{% url 'my_projects:projects_list' %}">My Projects</a>
+							{% if user.is_authenticated %}
+								<a href="{% url 'accounts:logout' %}">Log out</a>
+							{% else %}
+								<a href="{% url 'accounts:login' %}">Log in</a>
+							{% endif %}
+					</nav>
+				</div>
+		</header>
+		<a href="#menu" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+
+		{% block banner %}
+		{% endblock %}
+
+
+		{% block content_main %}
+		{% endblock %}
+
+
+
+<!--		&lt;!&ndash; Two &ndash;&gt;-->
+<!--			<section id="two">-->
+<!--				<div class="inner">-->
+<!--					<article>-->
+<!--						<div class="content">-->
+<!--							<header>-->
+<!--								<h3>Pellentesque adipis</h3>-->
+<!--							</header>-->
+<!--							<div class="image fit">-->
+<!--								<img src="images/pic01.jpg" alt="" />-->
+<!--							</div>-->
+<!--							<p>Cumsan mollis eros. Pellentesque a diam sit amet mi magna ullamcorper vehicula. Integer adipiscin sem. Nullam quis massa sit amet lorem ipsum feugiat tempus.</p>-->
+<!--						</div>-->
+<!--					</article>-->
+<!--					<article class="alt">-->
+<!--						<div class="content">-->
+<!--							<header>-->
+<!--								<h3>Morbi interdum mol</h3>-->
+<!--							</header>-->
+<!--							<div class="image fit">-->
+<!--								<img src="images/pic02.jpg" alt="" />-->
+<!--							</div>-->
+<!--							<p>Cumsan mollis eros. Pellentesque a diam sit amet mi magna ullamcorper vehicula. Integer adipiscin sem. Nullam quis massa sit amet lorem ipsum feugiat tempus.</p>-->
+<!--						</div>-->
+<!--					</article>-->
+<!--				</div>-->
+<!--			</section>-->
+
+
+
+			<!-- Footer -->
+			<section id="footer">
+				<div class="inner">
+<!--					<header>-->
+<!--						<h2>Find Me</h2>-->
+<!--					</header>-->
+<!--						<a target="_blank" rel="noopener noreferrer" href="https://github.com/Monttuu?tab=repositories" class="icon brands fa-github"><span class="label">GitHub</span></a>-->
+<!--						<a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/santerilevanto/" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a>-->
+<!--						<a target="_blank" rel="noopener noreferrer" href="https://stackoverflow.com/users/13108293/monttuu" class="icon brands fa-stack-overflow"><span class="label">Instagram</span></a>-->
+					<div class="copyright">
+						&copy; Untitled Design: <a href="https://templated.co/">TEMPLATED</a>.
+					</div>
+				</div>
+			</section>
+
+		<!-- Scripts -->
+
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+
+	</body>
+
+
+</html>

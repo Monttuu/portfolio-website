@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% block banner %}
+		<!-- Banner -->
+			<section class="banner frontpage">
+				<div class="inner">
+					<h1>Santeri Levanto: <span> <br />
+					My Website Portfolio</span></h1>
+					<ul class="actions">
+						<li><a href="{% url 'whoami:me_detail' pk=1 %}" class="button alt">Find More About Me</a></li>
+					</ul>
+				</div>
+			</section>
+{% endblock %}
+{% block content_main %}
+
+	<section id="one">
+		<div class="inner">
+			<header>
+				<h2>This is my website</h2>
+			</header>
+			<p>I am a fresh Master of Science, Tech. in Chemical Engineering, but I found my passion for coding
+				near the end of my studies. I learned the basics of software development and my first languages
+				during my studies, and I have been eager to learn more ever since. These websites are one
+				milestone on my journey, and personally I am quite pleased of what I have accomplished
+				so far.</p><br>
+
+			<p>These websites are not only my portfolio, but creating and upgrading them has been and
+				still are a great learning experience. I have a solid background with backend coding, but
+				this was my first attempt at developing a visually pleasing web application. Backend structure
+				I wrote by myself, but when it comes to styling with CSS and JavaScript, I have utilized a
+				free template provided by <a target="_blank" rel="noopener noreferrer" href="https://templated.co/">TEMPLATED</a>.
+				My current project is to learn to write my own JavaScript, and maybe one day I will design my own CSS stylings.
+				But for now, I am more interested of what is going under the hood.</p>
+
+			<ul class="actions">
+				<li><a href="{% url 'my_projects:projects_list' %}" class="button alt">View My Projects</a></li>
+			</ul>
+		</div>
+	</section>
+
+<!-- Three -->
+	<section id="three">
+		<div class="inner">
+			<article>
+				<div class="content">
+					<a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/santerilevanto/" class="icon fa-linkedin-in"><span class="label">LinkedIn</span></a>
+					<header>
+						<h3>My LinkedIn</h3>
+					</header>
+					<p>Find more about my education and work history. I joined LinkedIn during my studies in 2015 and I have kept my profile updated.</p>
+					<ul class="actions">
+						<li><a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/santerilevanto/" class="button alt">Learn More</a></li>
+					</ul>
+				</div>
+			</article>
+			<article>
+				<div class="content">
+					<a target="_blank" rel="noopener noreferrer" href="https://github.com/Monttuu?tab=repositories" class="icon fa-github"><span class="label">GitHub</span></a>
+					<header>
+						<h3>My GitHub</h3>
+					</header>
+					<p>Find more about my personal projects. I started utilizing GitHub for personal projects during spring 2020. </p><br>
+					<ul class="actions">
+						<li><a target="_blank" rel="noopener noreferrer" href="https://github.com/Monttuu?tab=repositories" class="button alt">Learn More</a></li>
+					</ul>
+				</div>
+			</article>
+			<article>
+			<div class="content">
+					<a target="_blank" rel="noopener noreferrer" href="https://stackoverflow.com/users/13108293/monttuu" class="icon fa-stack-overflow"><span class="label">Instagram</span></a>
+					<header>
+						<h3>My Stack Owerflow</h3>
+					</header>
+				<p>Besides utilizing Stack Owerflow as an recourse, I started answering questions as a hobby during summer 2020.</p><br>
+					<ul class="actions">
+						<li><a target="_blank" rel="noopener noreferrer" href="https://stackoverflow.com/users/13108293/monttuu" class="button alt">Learn More</a></li>
+					</ul>
+				</div>
+			</article>
+		</div>
+	</section>
+{% endblock %}

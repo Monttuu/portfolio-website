@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+
+{% block content_main %}
+<!--NEW CONTENT-->
+<!--FORM BY-->
+<!--https://bootsnipp.com/snippets/dldxB-->
+<!--<div class="wrapper fadeInDown">-->
+<section id="one">
+	<div class="inner">
+    <!-- Tabs Titles -->
+
+    <!-- Icon -->
+<!--    <div class="fadeIn first">-->
+
+
+    <!-- Login Form -->
+        <form method="POST">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            <input type="submit" value="Login" class="btn btn-default">
+        </form>
+<!--    <form>-->
+<!--      <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">-->
+<!--      <input type="text" id="password" class="fadeIn third" name="login" placeholder="password">-->
+<!--      <input type="submit" class="fadeIn fourth" value="Log In">-->
+<!--    </form>-->
+
+    <!-- Remind Passowrd -->
+    <div id="formFooter">
+      <a class="underlineHover" href="#">Forgot Password?</a>
+    </div>
+
+	</div>
+</section>
+
+
+{% endblock %}
+

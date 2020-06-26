@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content_main %}
+<section id="one">
+    <div class="inner">
+        <div class="wrapper">
+            {% for me in posts %}
+                <div class="post">
+                    <h1><a href="{% url 'whoami:me_detail' pk=me.pk %}">{{ me.title_shortInfo }}</a></h1>
+                    <p>{{ me.text_shortInfo|truncatechars:200 }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

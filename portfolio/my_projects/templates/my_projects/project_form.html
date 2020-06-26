@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content_main %}
+<section id="one">
+	<div class="inner">
+		<h1>New post</h1>
+
+		<form method="POST" class="post-form" enctype="multipart/form-data">
+		{% csrf_token %}
+		{{form.as_p}}
+		<button type="submit" class="save btn btn-default">Save</button>
+		</form>
+
+		<script>var editor = new MediumEditor('.editable');</script>
+	</div>
+</section>
+{% endblock %}
+

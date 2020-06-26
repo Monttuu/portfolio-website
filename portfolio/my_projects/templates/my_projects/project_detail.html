@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block content_main %}
+<section id="one">
+	<div class="inner">
+		<a href="{% url 'my_projects:projects_list' %}">Go Back</a>
+        <h1 class='posttitle loader'>{{ project.title }}</h1>
+
+        {% if project.published_date %}
+            <div class="date postdate">
+                Edited: {{ project.published_date }}
+            </div>
+
+        {% else %}
+<!--            <a class="btn btn-primary" href="#">Publish</a>-->
+            	<a class="btn btn-primary" href="{% url 'my_projects:project_publish' pk=project.pk %}">Publish</a>
+				<p></p>
+        {% endif %}
+		<div>
+			<img class="scaled_image" src="{{ project.image.url }}" />
+
+		</div>
+		<p class='postcontent' >{{ project.text|safe|linebreaksbr }}</p>
+
+      {% if user.is_authenticated %}
+          <a class="btn btn-primary" href="{% url 'my_projects:project_edit' pk=project.pk %}">Edit<span class="glyphicon glyphicon-pencil"></span></a>
+<!--          <a class="btn btn-primary" href="#">Edit<span class="glyphicon glyphicon-pencil"></span></a>-->
+          <a class="btn btn-primary" href="{% url 'my_projects:project_remove' pk=project.pk %}">Remove<span class="glyphicon glyphicon-remove"></span></a>
+<!--          <a class="btn btn-primary" href="#">Remove<span class="glyphicon glyphicon-remove"></span></a>-->
+      {% endif %}
+
+
+	</div>
+</section>
+{% endblock %}
+
+{% block content_right %}
+											<h3>Subheading</h3>
+											<p>Phasellus quam turpis, feugiat sit amet ornare in, hendrerit in lectus.
+											Praesent semper mod quis eget mi. Etiam eu ante risus. Aliquam erat volutpat.
+											Aliquam luctus et mattis lectus sit amet pulvinar. Nam turpis nisi
+											consequat etiam.</p>
+											<footer>
+												<a href="#" class="button icon solid fa-info-circle">Find out more</a>
+											</footer>
+										</section>
+
+										<section>
+											<h3>Subheading</h3>
+											<ul class="style2">
+												<li><a href="#">Amet turpis, feugiat et sit amet</a></li>
+												<li><a href="#">Ornare in hendrerit in lectus</a></li>
+												<li><a href="#">Semper mod quis eget mi dolore</a></li>
+												<li><a href="#">Quam turpis feugiat sit dolor</a></li>
+												<li><a href="#">Amet ornare in hendrerit in lectus</a></li>
+												<li><a href="#">Semper mod quisturpis nisi</a></li>
+											</ul>
+{% endblock %}

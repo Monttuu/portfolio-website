@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content_main %}
+<section id="one">
+	<div class="inner">
+		<h1>THESE ARE MY PROJECTS</h1>
+		<p>Here you can find short descriptions about my projects, as well as a link to its repository. </p>
+		<p>The projects are listed in the order of when they were added to these pages. The first project - and
+		currently the only project available- is this website project. I will be adding some of my previous as
+		soon as I add them to GitHub, and for this reason the order might seem a little off. In the future I aim to
+		post new projects in chronological order.</p><br><br>
+
+			{% for project in project_list %}
+				<div class="columnContainer">
+					<div class="row">
+						<div>
+							<img class='scaled_image' src="{{ project.image.url }}" />
+						</div>
+						<div>
+							<h1><a href="{% url 'my_projects:project_detail' pk=project.pk %}">{{ project.title }}</a></h1>
+							<div class="date">
+								<p>Published on: {{ project.published_date|date:"M Y"}}</p>
+								<p class="description">{{ project.description }}</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			{% endfor %}
+		{% if user.is_authenticated %}
+			<h1><a href="{% url 'my_projects:project_draft_list' %}">DRAFTS</a></h1>
+			<a href="{% url 'my_projects:project_new' %}" class="icon fa-plus"><span class="label">Create New</span></a>
+		{% endif %}
+
+	</div>
+</section>
+{% endblock %}
+

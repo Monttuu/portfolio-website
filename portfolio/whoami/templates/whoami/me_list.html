@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content_main %}
+<section id="one">
+	<div class="inner">
+		<h1>THESE ARE MY PROJECTS</h1><br><br>
+
+			{% for me in me_list %}
+				<div class="columnContainer">
+					<div class="row">
+						<div>
+							<img class='scaled_image' src="{{ me.image.url }}" />
+						</div>
+						<div>
+							<h1><a href="{% url 'whoami:me_detail' pk=me.pk %}">{{ me.title_shortInfo }}</a></h1>
+							<div class="date">
+								<p class="description">{{ me.text_shortInfo }}</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			{% endfor %}
+		{% if user.is_authenticated %}
+			<h1><a href="{% url 'whoami:me_draft_list' %}">DRAFTS</a></h1>
+			<a href="{% url 'whoami:me_new' %}" class="icon fa-plus"><span class="label">Create New</span></a>
+		{% endif %}
+
+	</div>
+</section>
+{% endblock %}
+
